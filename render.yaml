@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: edgewood-band
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: true
+    routes:
+      # SPA fallback: all in-page navigation is handled client-side in index.html
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
