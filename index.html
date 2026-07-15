@@ -160,7 +160,8 @@
   var CDN = 'https://images.squarespace-cdn.com/content/v1/55255395e4b0718783843750/';
   var img = function (id, file, w) { return CDN + id + '/' + file + '?format=' + (w || 750) + 'w'; };
 
-  var heroImg = img('5b0c71b3-fa13-4dcd-8806-baaf9d1093bd', 'Champs%21.jpg', 1200);
+  var heroImg = 'champs.webp';
+  var sponsorImg = '8x4+ft+Marching+Band+Sponsor+banner+2025+v2-01+(1).webp';
 
   var stats = [
     { num: '5×', label: 'State titles' },
@@ -213,7 +214,7 @@
   var featuredImg = img('291f1a89-8140-4f37-81ea-fb7e3f56d940', 'End+Set.JPG', 1200);
 
   var allNews = [
-    { tag: 'Championship', date: 'November 11, 2025', title: 'Back to Back to Back to BACK!', body: 'On November 8th, 2025 the Marching Mustangs earned their 5th Class C State Championship and their 4th STRAIGHT! An unforgettable end to an incredible season.', hasImg: true, img: img('5b0c71b3-fa13-4dcd-8806-baaf9d1093bd', 'Champs%21.jpg') },
+    { tag: 'Championship', date: 'November 11, 2025', title: 'Back to Back to Back to BACK!', body: 'On November 8th, 2025 the Marching Mustangs earned their 5th Class C State Championship and their 4th STRAIGHT! An unforgettable end to an incredible season.', hasImg: true, img: heroImg },
     { tag: 'Sponsors', date: 'September 12, 2025', title: 'Our amazing 2025 sponsors!', body: 'The Edgewood Performing Arts would like to thank ALL of our wonderful 2025 sponsors! Without your help and support we would not be able to bring such amazing art to life.', hasImg: true, img: img('8fc79114-e45a-4f50-ab0d-08972c3e1d4f', '8x4+ft+Marching+Band+Sponsor+banner+2025+v2-01+%281%29.jpg') },
     { tag: 'Performances', date: 'August 28, 2025', title: 'Our 2025 production', body: 'Click through for information on any of our upcoming performances — Center Grove, Jasper, Regionals, BOA, Semi-State, and State Finals itineraries all available.', hasImg: false, img: '' },
     { tag: 'Championship', date: 'November 13, 2024', title: '#Epeat!', body: 'On November 9th the Marching Mustangs performed in the ISSMA State Marching Band Competition and earned their 3rd straight Class C State Championship!', hasImg: true, img: img('291f1a89-8140-4f37-81ea-fb7e3f56d940', 'End+Set.JPG') },
@@ -408,9 +409,12 @@
 
     // SPONSORS
     '<section style="background:#C1121F; color:#fff;">' +
-      '<div style="max-width:1200px; margin:0 auto; padding:60px 28px; text-align:center;">' +
+      '<div style="max-width:1200px; margin:0 auto; padding:60px 28px 64px; text-align:center;">' +
         '<h2 style="font-family:\'Anton\'; font-weight:400; font-size:clamp(28px,3.4vw,40px); text-transform:uppercase; margin:0;">Thank you to our 2025 sponsors</h2>' +
         '<p style="font-family:\'Source Serif 4\', serif; font-size:18px; color:#EBD3D5; margin:14px auto 0; max-width:620px;">Without your support we could not bring such amazing art to life. Interested in sponsoring the Marching Mustangs?</p>' +
+        '<a href="' + esc(sponsorImg) + '" target="_blank" rel="noopener" aria-label="Open the full-size 2025 sponsor banner" style="display:block; margin:30px auto 0; background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 20px 44px rgba(68,4,10,.28);">' +
+          '<img src="' + esc(sponsorImg) + '" alt="2025 Edgewood Performing Arts sponsor logos" loading="lazy" style="width:100%; height:auto; display:block;">' +
+        '</a>' +
         '<a href="https://www.edgewoodmusic.org/contact-1" target="_blank" rel="noopener" style="display:inline-block; margin-top:24px; background:#ffffff; color:#A31621; font-weight:700; padding:14px 28px; border-radius:5px; font-size:15px;">Become a sponsor</a>' +
       '</div>' +
     '</section>' +
