@@ -47,6 +47,8 @@
   .cal-tile:hover { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.45); }
   .card-momma:hover { transform:translateY(-4px); }
   .row-resource:hover { background:#FCF0F1; }
+  .contact-line { color:#A31621; }
+  .contact-line:hover { text-decoration:underline; }
   .foot-link:hover { color:#ffffff; }
 
   /* Layout grids (responsive) */
@@ -57,10 +59,11 @@
   .g-cal-tiles { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
   .g-forms { display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center; }
   .g-momma { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .g-people { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
   .g-ann { display:grid; grid-template-columns:1fr 1.2fr; }
 
   @media (max-width: 960px) {
-    .g-momma { grid-template-columns:repeat(2,1fr); }
+    .g-momma, .g-people { grid-template-columns:repeat(2,1fr); }
   }
   @media (max-width: 840px) {
     .g-hero { grid-template-columns:1fr; gap:34px; }
@@ -71,7 +74,7 @@
   }
   @media (max-width: 560px) {
     .g-cal-tiles { grid-template-columns:1fr; }
-    .g-momma { grid-template-columns:1fr; }
+    .g-momma, .g-people { grid-template-columns:1fr; }
   }
 </style>
 </head>
@@ -91,7 +94,7 @@
         <a id="nav-news" class="navlink active" href="#" onclick="return EPA.go('home')">News</a>
         <a id="nav-forms" class="navlink" href="#" onclick="return EPA.go('forms')">Forms &amp; itineraries</a>
         <a class="navlink" href="#" onclick="return EPA.goSection('calendars')">Calendars</a>
-        <a class="navlink" href="https://www.edgewoodmusic.org/contact-1" target="_blank" rel="noopener">Contacts</a>
+        <a id="nav-contacts" class="navlink" href="#" onclick="return EPA.go('contacts')">Contacts</a>
         <a href="https://www.edgewoodmusic.org/new-page" target="_blank" rel="noopener" style="margin-left:10px; background:#ffffff; color:#A31621; font-weight:700; padding:11px 20px; border-radius:4px; font-size:14px;">Student access</a>
       </nav>
     </div>
@@ -210,10 +213,31 @@
   ];
 
   var resources = [
-    { name: 'Band Camp information', desc: 'Schedule, expectations, and roommate sign-up (PDF).', url: 'https://www.edgewoodmusic.org/s/Band-Camp_Mini-Camp.pdf', action: 'Download' },
-    { name: 'Forms & itineraries (full archive)', desc: 'Every current form and itinerary in one place.', url: 'https://www.edgewoodmusic.org/forms-etc', action: 'Open' },
+    { name: 'Band Camp information', desc: 'Schedule, expectations, and roommate sign-up (PDF).', url: 'https://drive.google.com/file/d/11Ps2CTjx1IY3Mn_KwQB88vKsdUpZ6K_k/view?usp=sharing', action: 'Download' },
+    { name: 'Forms & itineraries (full archive)', desc: 'Every current form and itinerary in one place.', url: 'https://drive.google.com/open?id=0B1fhlaVa0zPkMS1sa2k0ck5NeDA&authuser=0', action: 'Open' },
+    { name: 'Spirit wear', desc: 'Order Marching Mustangs apparel.', url: 'https://drive.google.com/open?id=0B1fhlaVa0zPkX2hsM2V5T2ZoYVk&authuser=0', action: 'Open' },
+    { name: 'Booster bylaws', desc: 'The Edgewood Band Boosters governing bylaws (PDF).', url: 'https://drive.google.com/file/d/1Lhis44-ldcVAH7S09mPi6D_Vwn_RpxMV/view?usp=sharing', action: 'Download' },
+    { name: 'Meeting minutes', desc: 'Minutes from booster meetings.', url: 'https://drive.google.com/drive/folders/19ZfRUyd81UA1SvRYHFM9Ln_Ey8RCySFt?usp=drive_link', action: 'Open' },
     { name: 'Student access', desc: 'Log in to the student access portal.', url: 'https://www.edgewoodmusic.org/new-page', action: 'Go' },
-    { name: 'Booster / director contacts', desc: 'Reach the directors and booster board.', url: 'https://www.edgewoodmusic.org/contact-1', action: 'View' }
+    { name: 'Booster / director contacts', desc: 'Reach the directors and booster board.', page: 'contacts', action: 'View' }
+  ];
+
+  // Booster board and directors. Roster as published on the current site.
+  var rosterYear = '2022–2023';
+  var directors = [
+    { name: 'Aaron Wells', title: 'Band Director', phone: '812-829-8046', email: 'awells@rbbschools.net' },
+    { name: 'Curt Koehler', title: 'EJHS Director', phone: '812-251-8506', email: 'ckoehler@rbbschools.net' },
+    { name: 'Derek Latham', title: 'Director of Pageantry', phone: '812-585-0336', email: 'dlatham@rbbschools.net' },
+    { name: 'Tim Keller', title: 'Percussion Director', phone: '812-219-7691', email: 'tkdrum92@gmail.com' }
+  ];
+  var boosters = [
+    { name: 'Aryn Lucas', title: 'President', phone: '812-345-3716', email: 'edgewoodbandpresident@gmail.com' },
+    { name: 'Gwen Shields', title: 'VP of Committees', phone: '812-340-9924', email: 'edgewoodbandcommittees@gmail.com' },
+    { name: 'Beth Hoard', title: 'VP of Fundraising', phone: '812-606-0558', email: 'edgewoodbandfundraising@gmail.com' },
+    { name: 'Mark Connelley', title: 'Treasurer', phone: '812-219-3052', email: 'edgewoodbandtreasurer@gmail.com' },
+    { name: 'Kirie Leturgez', title: 'Asst. Treasurer', phone: '812-369-5097', email: 'edgewoodbandtreasurer@gmail.com' },
+    { name: 'Angie Grimes', title: 'Secretary', phone: '812-320-9960', email: 'edgewoodbandtreasurer@gmail.com' },
+    { name: 'Kevin Cherry', title: 'JH Liaison', phone: '812-345-2945', email: 'edgewoodbandliaison@gmail.com' }
   ];
 
   function esc(s) {
@@ -374,7 +398,7 @@
         '<a href="' + esc(sponsorImg) + '" target="_blank" rel="noopener" aria-label="Open the full-size 2025 sponsor banner" style="display:block; margin:30px auto 0; background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 18px 40px rgba(20,22,26,.13);">' +
           '<img src="' + esc(sponsorImg) + '" alt="2025 Edgewood Performing Arts sponsor logos" loading="lazy" style="width:100%; height:auto; display:block;">' +
         '</a>' +
-        '<a href="https://www.edgewoodmusic.org/contact-1" target="_blank" rel="noopener" class="btn-red" style="display:inline-block; margin-top:24px; background:#A31621; color:#ffffff; font-weight:700; padding:14px 28px; border-radius:5px; font-size:15px;">Become a sponsor</a>' +
+        '<a href="#" onclick="return EPA.go(\'contacts\')" class="btn-red" style="display:inline-block; margin-top:24px; background:#A31621; color:#ffffff; font-weight:700; padding:14px 28px; border-radius:5px; font-size:15px;">Become a sponsor</a>' +
       '</div>' +
     '</section>' +
 
@@ -420,7 +444,10 @@
     }).join('');
 
     var resHtml = resources.map(function (r) {
-      return '<a href="' + esc(r.url) + '" target="_blank" rel="noopener" class="row-resource" style="display:flex; align-items:center; justify-content:space-between; gap:16px; background:#fff; border-radius:10px; padding:20px 24px; box-shadow:0 6px 16px rgba(120,15,25,.07); transition:background .13s ease;">' +
+      var link = r.page
+        ? 'href="#" onclick="return EPA.go(\'' + r.page + '\')"'
+        : 'href="' + esc(r.url) + '" target="_blank" rel="noopener"';
+      return '<a ' + link + ' class="row-resource" style="display:flex; align-items:center; justify-content:space-between; gap:16px; background:#fff; border-radius:10px; padding:20px 24px; box-shadow:0 6px 16px rgba(120,15,25,.07); transition:background .13s ease;">' +
         '<div>' +
           '<div style="font-weight:700; font-size:17px; color:#16181D;">' + esc(r.name) + '</div>' +
           '<div style="font-size:14px; color:#565D68; margin-top:3px;">' + esc(r.desc) + '</div>' +
@@ -448,6 +475,59 @@
     '</div>';
   }
 
+  function renderContacts() {
+    var card = function (p) {
+      return '<div style="background:#fff; border-radius:12px; padding:20px 22px; box-shadow:0 6px 16px rgba(120,15,25,.07);">' +
+        '<div style="font-size:11.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#A31621;">' + esc(p.title) + '</div>' +
+        '<div style="font-family:\'Source Serif 4\', serif; font-size:20px; margin-top:6px; color:#16181D;">' + esc(p.name) + '</div>' +
+        '<div style="display:flex; flex-direction:column; gap:5px; margin-top:12px; font-size:14.5px;">' +
+          '<a class="contact-line" href="tel:' + esc(p.phone.replace(/[^0-9]/g, '')) + '">' + esc(p.phone) + '</a>' +
+          '<a class="contact-line" href="mailto:' + esc(p.email) + '" style="word-break:break-all;">' + esc(p.email) + '</a>' +
+        '</div>' +
+      '</div>';
+    };
+
+    return '<div>' +
+      '<section style="background:#A31621; color:#fff;">' +
+        '<div style="max-width:1060px; margin:0 auto; padding:56px 28px 50px;">' +
+          '<a href="#" onclick="return EPA.go(\'home\')" style="color:#E3B9BD; font-size:13.5px; font-weight:600;">← Back to home</a>' +
+          '<h1 style="font-family:\'Anton\'; font-weight:400; font-size:clamp(40px,5.2vw,64px); text-transform:uppercase; margin:16px 0 0;">Contacts</h1>' +
+          '<p style="font-family:\'Source Serif 4\', serif; font-size:19px; color:#EBD3D5; margin:12px 0 0; max-width:620px;">You may have questions — let us answer them for you.</p>' +
+        '</div>' +
+      '</section>' +
+
+      // GENERAL
+      '<section style="max-width:1060px; margin:0 auto; padding:48px 28px 8px;">' +
+        '<div style="background:#fff; border-radius:14px; padding:28px 30px; box-shadow:0 10px 30px rgba(120,15,25,.1); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px;">' +
+          '<div>' +
+            '<div style="font-size:12.5px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:#A31621;">General enquiries</div>' +
+            '<a class="contact-line" href="mailto:ehsperformingarts@gmail.com" style="display:inline-block; font-family:\'Source Serif 4\', serif; font-size:22px; margin-top:8px; color:#16181D;">ehsperformingarts@gmail.com</a>' +
+          '</div>' +
+          '<div style="display:flex; gap:10px; flex-wrap:wrap;">' +
+            '<a href="http://instagram.com/edgewoodmusic" target="_blank" rel="noopener" class="btn-red" style="background:#A31621; color:#fff; font-weight:700; padding:11px 18px; border-radius:5px; font-size:14px;">Instagram</a>' +
+            '<a href="https://www.facebook.com/groups/398146963576638/" target="_blank" rel="noopener" style="border:1.5px solid #E4E7EB; color:#16181D; font-weight:700; padding:11px 18px; border-radius:5px; font-size:14px;">Facebook</a>' +
+            '<a href="https://twitter.com/Edgewood_Band" target="_blank" rel="noopener" style="border:1.5px solid #E4E7EB; color:#16181D; font-weight:700; padding:11px 18px; border-radius:5px; font-size:14px;">Twitter</a>' +
+          '</div>' +
+        '</div>' +
+      '</section>' +
+
+      // DIRECTORS
+      '<section style="max-width:1060px; margin:0 auto; padding:40px 28px 0;">' +
+        '<h2 style="font-family:\'Anton\'; font-weight:400; font-size:clamp(26px,3.2vw,36px); text-transform:uppercase; margin:0 0 20px; color:#16181D;">Directors</h2>' +
+        '<div class="g-people">' + directors.map(card).join('') + '</div>' +
+      '</section>' +
+
+      // BOOSTER BOARD
+      '<section style="max-width:1060px; margin:0 auto; padding:40px 28px 80px;">' +
+        '<div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:20px;">' +
+          '<h2 style="font-family:\'Anton\'; font-weight:400; font-size:clamp(26px,3.2vw,36px); text-transform:uppercase; margin:0; color:#16181D;">Booster board</h2>' +
+          '<span style="font-size:12.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#646B76;">' + esc(rosterYear) + '</span>' +
+        '</div>' +
+        '<div class="g-people">' + boosters.map(card).join('') + '</div>' +
+      '</section>' +
+    '</div>';
+  }
+
   var EPA = {
     state: { page: 'home' },
     go: function (page) {
@@ -471,12 +551,12 @@
       var page = this.state.page;
       if (page === 'announcements') view.innerHTML = renderAnnouncements();
       else if (page === 'forms') view.innerHTML = renderForms();
+      else if (page === 'contacts') view.innerHTML = renderContacts();
       else view.innerHTML = renderHome();
 
-      var navNews = document.getElementById('nav-news');
-      var navForms = document.getElementById('nav-forms');
-      navNews.classList.toggle('active', page === 'home');
-      navForms.classList.toggle('active', page === 'forms');
+      document.getElementById('nav-news').classList.toggle('active', page === 'home');
+      document.getElementById('nav-forms').classList.toggle('active', page === 'forms');
+      document.getElementById('nav-contacts').classList.toggle('active', page === 'contacts');
     }
   };
 
