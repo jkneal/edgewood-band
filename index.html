@@ -91,7 +91,7 @@
         <span style="font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#F2CDD0; font-weight:600; line-height:1.3;">Marching<br>Mustangs</span>
       </a>
       <nav style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
-        <a id="nav-news" class="navlink active" href="#" onclick="return EPA.go('home')">News</a>
+        <a id="nav-announcements" class="navlink" href="#" onclick="return EPA.go('announcements')">Announcements</a>
         <a id="nav-forms" class="navlink" href="#" onclick="return EPA.go('forms')">Forms &amp; itineraries</a>
         <a class="navlink" href="#" onclick="return EPA.goSection('calendars')">Calendars</a>
         <a id="nav-contacts" class="navlink" href="#" onclick="return EPA.go('contacts')">Contacts</a>
@@ -200,7 +200,8 @@
     { tag: 'Performances', date: 'August 28, 2025', title: 'Our 2025 production', body: 'Click through for information on any of our upcoming performances — Center Grove, Jasper, Regionals, BOA, Semi-State, and State Finals itineraries all available.', hasImg: false, img: '' },
     { tag: 'Championship', date: 'November 13, 2024', title: '#Epeat!', body: 'On November 9th the Marching Mustangs performed in the ISSMA State Marching Band Competition and earned their 3rd straight Class C State Championship!', hasImg: true, img: img('291f1a89-8140-4f37-81ea-fb7e3f56d940', 'End+Set.JPG') },
     { tag: 'Show reveal', date: 'September 13, 2024', title: 'The Edgewood Marching Mustangs are proud to present…', body: 'The reveal of our 2024 competition production. A new story to tell on the field this fall.', hasImg: false, img: '' },
-    { tag: 'Championship', date: 'November 30, 2023', title: 'Back to Back ISSMA Class C State Champions!', body: 'Two years running — the Marching Mustangs claim consecutive Class C State Championships.', hasImg: false, img: '' }
+    { tag: 'Championship', date: 'November 30, 2023', title: 'Back to Back ISSMA Class C State Champions!', body: 'Two years running — the Marching Mustangs claim consecutive Class C State Championships.', hasImg: false, img: '' },
+    { tag: 'Championship', date: 'November 9, 2022', title: "Winner's drink milk!", body: 'What an amazing group of humans! The Marching Mustangs took the 2022 ISSMA Class C State Championship — the title that started the current four-year streak.', hasImg: true, img: 'assets/img/2022-state-champs.jpg' }
   ];
 
   var mommaWells = [
@@ -554,7 +555,7 @@
       else if (page === 'contacts') view.innerHTML = renderContacts();
       else view.innerHTML = renderHome();
 
-      document.getElementById('nav-news').classList.toggle('active', page === 'home');
+      document.getElementById('nav-announcements').classList.toggle('active', page === 'announcements');
       document.getElementById('nav-forms').classList.toggle('active', page === 'forms');
       document.getElementById('nav-contacts').classList.toggle('active', page === 'contacts');
     }
