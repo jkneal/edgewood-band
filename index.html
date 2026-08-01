@@ -58,6 +58,8 @@
 
   /* Hover interactions (ported from design style-hover attrs) */
   .btn-red:hover { transform:translateY(2px); box-shadow:0 4px 0 #5C0A11; }
+  .btn-student { box-shadow:0 4px 0 #E2B9BC; transition:transform .12s ease, box-shadow .12s ease; }
+  .btn-student:hover { transform:translateY(2px); box-shadow:0 2px 0 #E2B9BC; }
   .card-featured:hover { transform:translateY(-4px); box-shadow:0 24px 50px rgba(120,15,25,.2); }
   .card-news:hover { transform:translateX(4px); }
   .cal-tile:hover { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.45); }
@@ -122,7 +124,7 @@
           <a class="navlink" href="#" onclick="return EPA.goSection('calendars')">Calendars</a>
           <a data-page="contacts" class="navlink" href="#" onclick="return EPA.go('contacts')">Contacts</a>
         </nav>
-        <a href="https://www.edgewoodmusic.org/new-page" target="_blank" rel="noopener" style="margin-left:6px; background:#ffffff; color:#A31621; font-weight:700; padding:11px 20px; border-radius:4px; font-size:14px; white-space:nowrap;">Student access</a>
+        <a href="https://www.edgewoodmusic.org/new-page" target="_blank" rel="noopener" class="btn-student" style="margin-left:6px; background:#ffffff; color:#A31621; font-weight:700; padding:11px 20px; border-radius:4px; font-size:14px; white-space:nowrap;">Student access</a>
         <button id="nav-toggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav" onclick="return EPA.toggleMenu()">
           <span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </button>
