@@ -38,9 +38,6 @@
   .navlink.active { background:rgba(255,255,255,.16); }
 
   /* Hover interactions (ported from design style-hover attrs) */
-  .btn-white:hover { transform:translateY(2px); box-shadow:0 4px 0 #E2B9BC; }
-  .btn-white-lg:hover { transform:translateY(2px); box-shadow:0 4px 0 #E2B9BC; }
-  .btn-outline:hover { background:rgba(255,255,255,.1); }
   .btn-red:hover { transform:translateY(2px); box-shadow:0 4px 0 #5C0A11; }
   .card-featured:hover { transform:translateY(-4px); box-shadow:0 24px 50px rgba(120,15,25,.2); }
   .card-news:hover { transform:translateX(4px); }
@@ -60,6 +57,7 @@
   .g-momma { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
   .g-people { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
   .g-ann { display:grid; grid-template-columns:1fr 1.2fr; }
+  .hero-ribbon { border-radius:2px 2px 0 0; z-index:0; }
 
   @media (max-width: 960px) {
     .g-momma, .g-people { grid-template-columns:repeat(2,1fr); }
@@ -71,6 +69,7 @@
     .g-ann { grid-template-columns:1fr; }
   }
   @media (max-width: 560px) {
+    .hero-ribbon { display:none; }
     .g-cal-tiles { grid-template-columns:1fr; }
     .g-momma, .g-people { grid-template-columns:1fr; }
   }
@@ -288,22 +287,38 @@
       '</div>';
     }).join('');
 
+    // Hero background ribbons — echo the "ties" in the show artwork and
+    // its palette, filling the wide margins either side of the reveal.
+    var heroRibbons = [
+      { left: '3%',  h: 130, color: '#C2704E' },
+      { left: '9%',  h: 76,  color: '#D8D8D8' },
+      { left: '16%', h: 172, color: '#1A336F' },
+      { left: '84%', h: 96,  color: '#1A336F' },
+      { left: '91%', h: 160, color: '#C2704E' },
+      { left: '97%', h: 84,  color: '#F3ED3A' }
+    ];
+    var ribbonsHtml = heroRibbons.map(function (rb) {
+      return '<span class="hero-ribbon" style="position:absolute; top:0; left:' + rb.left + '; width:7px; height:' + rb.h + 'px; background:' + rb.color + '; clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),50% 100%,0 calc(100% - 14px));"></span>';
+    }).join('');
+
     return '' +
     '<div>' +
 
-    // HERO
-    '<section style="background:radial-gradient(120% 100% at 78% 8%, #C1121F 0%, #A31621 44%, #3D0B10 100%); color:#fff; overflow:hidden; position:relative;">' +
-      '<div style="max-width:1000px; margin:0 auto; padding:76px 28px 84px; text-align:center;">' +
-        '<div style="display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.4); color:#ffffff; padding:7px 15px; border-radius:100px; font-size:12.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; animation:emRise .6s ease both;">2026 Show Reveal</div>' +
-        '<h1 style="margin:32px 0 0; animation:emRise .8s ease .15s both;">' +
-          '<div style="display:inline-block; background:#fff; border-radius:16px; padding:26px 34px; box-shadow:0 28px 64px rgba(0,0,0,.36); max-width:100%;">' +
-            '<img src="assets/img/ties-that-bind.png" alt="The Ties That Bind — Edgewood Performing Arts 2026 production" style="width:100%; max-width:560px; height:auto; display:block;">' +
-          '</div>' +
-        '</h1>' +
-        '<p style="font-family:\'Source Serif 4\', serif; font-size:20px; line-height:1.5; color:#F0DADC; max-width:600px; margin:30px auto 0; animation:emRise .8s ease .3s both;">The Marching Mustangs are proud to present our 2026 production. The season opens <strong style="color:#fff;">September 19 at Greenwood</strong> and runs through ISSMA State Finals on <strong style="color:#fff;">November 7</strong>.</p>' +
-        '<div style="display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; justify-content:center; animation:emRise .8s ease .45s both;">' +
-          '<a href="#" onclick="return EPA.go(\'forms\')" class="btn-white" style="background:#ffffff; color:#A31621; font-weight:700; padding:15px 26px; border-radius:5px; font-size:15px; box-shadow:0 6px 0 #E2B9BC; transition:transform .12s ease, box-shadow .12s ease;">Performance schedule &amp; itineraries</a>' +
-          '<a href="#news" onclick="return EPA.goSection(\'news\')" class="btn-outline" style="border:1.5px solid rgba(255,255,255,.55); color:#fff; font-weight:600; padding:15px 26px; border-radius:5px; font-size:15px; transition:background .15s ease;">Read the latest news</a>' +
+    // HERO — the reveal takes its palette from the show artwork itself
+    // (coral, navy, mustard) rather than the site's red, so it reads as
+    // its own moment.
+    '<section style="background:#ffffff; color:#16181D; border-bottom:1px solid #EDEDED; position:relative; overflow:hidden;">' +
+      ribbonsHtml +
+      '<div style="position:relative; z-index:1; max-width:720px; margin:0 auto; padding:88px 28px 76px; text-align:center;">' +
+        '<div style="font-size:12.5px; font-weight:800; letter-spacing:.24em; text-transform:uppercase; color:#1A336F; animation:emRise .6s ease both;">2026 Show Reveal</div>' +
+        '<div style="margin:28px 0 0; animation:emRise .8s ease .12s both;">' +
+          '<img src="assets/img/ties-that-bind.png" alt="The Ties That Bind — Edgewood Performing Arts 2026 production" style="width:100%; max-width:440px; height:auto; display:block; margin:0 auto;">' +
+        '</div>' +
+        '<p style="font-family:\'Source Serif 4\', serif; font-size:19px; line-height:1.6; color:#4A4A4A; max-width:520px; margin:32px auto 0; animation:emRise .8s ease .24s both;">The Marching Mustangs are proud to present our 2026 production. The season opens <strong style="color:#C2704E;">September&nbsp;19 at Greenwood</strong> and runs through ISSMA State Finals on <strong style="color:#1A336F;">November&nbsp;7</strong>.</p>' +
+        '<div style="display:flex; justify-content:center; gap:6px; margin-top:34px; animation:emRise .8s ease .36s both;">' +
+          '<span style="width:26px; height:4px; border-radius:2px; background:#C2704E;"></span>' +
+          '<span style="width:26px; height:4px; border-radius:2px; background:#1A336F;"></span>' +
+          '<span style="width:26px; height:4px; border-radius:2px; background:#F3ED3A;"></span>' +
         '</div>' +
       '</div>' +
     '</section>' +
