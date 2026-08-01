@@ -80,7 +80,6 @@
   .g-momma { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
   .g-people { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
   .g-ann { display:grid; grid-template-columns:1fr 1.2fr; }
-  .hero-ribbon { z-index:0; box-sizing:border-box; }
 
   /* Footer */
   .foot-row { display:flex; align-items:center; justify-content:space-between; gap:24px 36px; flex-wrap:wrap; }
@@ -98,7 +97,6 @@
     .foot-partners { display:none; }
   }
   @media (max-width: 560px) {
-    .hero-ribbon { display:none; }
     .g-cal-tiles { grid-template-columns:1fr; }
     .g-momma, .g-people { grid-template-columns:1fr; }
   }
@@ -328,32 +326,14 @@
       '</div>';
     }).join('');
 
-    // Hero background ribbons — echo the "ties" in the show artwork and
-    // its palette, filling the wide margins either side of the reveal.
-    var heroRibbons = [
-      { left: '3%',  h: 130, color: '#C2704E', filled: true },
-      { left: '9%',  h: 76,  color: '#B9B9B9', filled: false },
-      { left: '16%', h: 172, color: '#1A336F', filled: true },
-      { left: '84%', h: 96,  color: '#1A336F', filled: false },
-      { left: '91%', h: 160, color: '#C2704E', filled: true },
-      { left: '97%', h: 84,  color: '#F3ED3A', filled: false }
-    ];
-    var ribbonsHtml = heroRibbons.map(function (rb) {
-      var fill = rb.filled
-        ? 'background:' + rb.color + ';'
-        : 'background:transparent; border:2px solid ' + rb.color + ';';
-      return '<span class="hero-ribbon" style="position:absolute; top:0; left:' + rb.left + '; width:8px; height:' + rb.h + 'px; ' + fill + '"></span>';
-    }).join('');
-
     return '' +
     '<div>' +
 
     // HERO — the reveal takes its palette from the show artwork itself
     // (coral, navy, mustard) rather than the site's red, so it reads as
     // its own moment.
-    '<section style="background:#ffffff; color:#16181D; border-bottom:1px solid #EDEDED; position:relative; overflow:hidden;">' +
-      ribbonsHtml +
-      '<div style="position:relative; z-index:1; max-width:720px; margin:0 auto; padding:88px 28px 76px; text-align:center;">' +
+    '<section style="background:#ffffff; color:#16181D; border-bottom:1px solid #EDEDED;">' +
+      '<div style="max-width:720px; margin:0 auto; padding:88px 28px 76px; text-align:center;">' +
         '<div style="font-size:12.5px; font-weight:800; letter-spacing:.24em; text-transform:uppercase; color:#1A336F; animation:emRise .6s ease both;">2026 Show Reveal</div>' +
         '<div style="margin:28px 0 0; animation:emRise .8s ease .12s both;">' +
           '<img src="assets/img/ties-that-bind.png" alt="The Ties That Bind — Edgewood Performing Arts 2026 production" style="width:100%; max-width:440px; height:auto; display:block; margin:0 auto;">' +
