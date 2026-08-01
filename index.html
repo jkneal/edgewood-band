@@ -38,6 +38,7 @@
   .navlink.active { background:rgba(255,255,255,.16); }
 
   /* Mobile menu: hamburger hidden on desktop, shown + desktop nav hidden under 840px */
+  .desktop-nav { display:flex; align-items:center; gap:4px; flex-wrap:wrap; }
   .nav-toggle { display:none; flex-direction:column; justify-content:center; gap:5px; flex:none; width:44px; height:44px; padding:0; background:none; border:none; cursor:pointer; }
   .nav-toggle .bar { display:block; width:22px; height:2px; margin:0 auto; background:#fff; border-radius:1px; transition:transform .16s ease, opacity .16s ease; }
   .nav-toggle.open .bar:nth-child(1) { transform:translateY(7px) rotate(45deg); }
@@ -104,7 +105,7 @@
         <span style="font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#F2CDD0; font-weight:600; line-height:1.3;">Marching<br>Mustangs</span>
       </a>
       <div style="display:flex; align-items:center; gap:10px;">
-        <nav class="desktop-nav" style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
+        <nav class="desktop-nav">
           <a data-page="announcements" class="navlink" href="#" onclick="return EPA.go('announcements')">Announcements</a>
           <a data-page="forms" class="navlink" href="#" onclick="return EPA.go('forms')">Forms &amp; itineraries</a>
           <a class="navlink" href="#" onclick="return EPA.goSection('calendars')">Calendars</a>
