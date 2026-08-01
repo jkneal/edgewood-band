@@ -82,7 +82,7 @@
 
   /* Footer */
   .foot-row { display:flex; align-items:center; justify-content:space-between; gap:24px 36px; flex-wrap:wrap; }
-  .foot-brand { display:flex; align-items:center; gap:14px; }
+  .foot-brand { display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
   .foot-partners { display:flex; align-items:center; gap:20px; font-size:13.5px; flex-wrap:wrap; }
 
   @media (max-width: 960px) {
@@ -94,7 +94,6 @@
     .g-forms { grid-template-columns:1fr; gap:26px; }
     .g-ann { grid-template-columns:1fr; }
     .foot-partners { display:none; }
-    .foot-brand { width:100%; justify-content:space-between; }
   }
   @media (max-width: 560px) {
     .hero-ribbon { display:none; }
@@ -113,7 +112,7 @@
       <a href="#" onclick="return EPA.go('home')" style="display:flex; align-items:center; gap:14px; cursor:pointer;">
         <span style="flex:none; background:#fff; border-radius:9px; padding:8px 12px; display:flex; align-items:center; box-shadow:0 3px 12px rgba(120,15,25,.28);"><img src="assets/EPA-logo-stacked.png" alt="Edgewood Performing Arts" style="height:44px; width:auto; display:block;"></span>
         <span style="align-self:center; height:34px; width:1px; background:rgba(255,255,255,.28);"></span>
-        <span class="wordmark-desktop" style="font-family:'Anton'; font-weight:400; font-size:21px; letter-spacing:.04em; text-transform:uppercase; color:#fff; line-height:1; white-space:nowrap; text-rendering:optimizeLegibility;">Marching Mustangs</span>
+        <span class="wordmark-desktop" style="font-family:'Anton'; font-weight:400; font-size:21px; letter-spacing:.04em; text-transform:uppercase; color:#F2CDD0; line-height:1; white-space:nowrap; text-rendering:optimizeLegibility;">Marching Mustangs</span>
         <span class="wordmark-mobile" style="font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#F2CDD0; font-weight:600; line-height:1.3;">Marching<br>Mustangs</span>
       </a>
       <div style="display:flex; align-items:center; gap:10px;">
@@ -144,14 +143,14 @@
     <div class="foot-row" style="max-width:1200px; margin:0 auto; padding:24px 28px;">
       <div class="foot-brand">
         <img src="assets/EPA-logo-white.png" alt="Edgewood Performing Arts" style="height:34px; width:auto; display:block;">
-        <span style="font-size:12.5px; color:#868D97;">© 2026 Edgewood Performing Arts</span>
+        <div class="foot-partners">
+          <span style="font-size:11.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#868D97;">Partners</span>
+          <a class="foot-link" href="https://www.paigesmusic.com/paiges/run?id=6" target="_blank" rel="noopener">Paige's Music</a>
+          <a class="foot-link" href="https://creekbendmedia.com/" target="_blank" rel="noopener">Creekbend Media</a>
+          <a class="foot-link" href="http://www.musictravel.com/index.html" target="_blank" rel="noopener">Music Travel</a>
+        </div>
       </div>
-      <div class="foot-partners">
-        <span style="font-size:11.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#868D97;">Partners</span>
-        <a class="foot-link" href="https://www.paigesmusic.com/paiges/run?id=6" target="_blank" rel="noopener">Paige's Music</a>
-        <a class="foot-link" href="https://creekbendmedia.com/" target="_blank" rel="noopener">Creekbend Media</a>
-        <a class="foot-link" href="http://www.musictravel.com/index.html" target="_blank" rel="noopener">Music Travel</a>
-      </div>
+      <span style="font-size:12.5px; color:#868D97;">© 2026 Edgewood Performing Arts</span>
     </div>
   </footer>
 
@@ -188,9 +187,9 @@
   var sponsorImg = '8x4+ft+Marching+Band+Sponsor+banner+2025+v2-01+(1).webp';
 
   var stats = [
+    { num: 'Class C', label: 'ISSMA division' },
     { num: '5×', label: 'State titles' },
-    { num: '4', label: 'Straight' },
-    { num: 'Class C', label: 'ISSMA division' }
+    { num: '4', label: 'Straight' }
   ];
 
   var newsList = [
