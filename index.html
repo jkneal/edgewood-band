@@ -52,7 +52,6 @@
   .foot-link:hover { color:#ffffff; }
 
   /* Layout grids (responsive) */
-  .g-hero { display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; }
   .g-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; text-align:center; }
   .g-news { display:grid; grid-template-columns:1.15fr .85fr; gap:26px; }
   .g-cal { display:grid; grid-template-columns:.8fr 1.2fr; gap:56px; align-items:start; }
@@ -66,7 +65,6 @@
     .g-momma, .g-people { grid-template-columns:repeat(2,1fr); }
   }
   @media (max-width: 840px) {
-    .g-hero { grid-template-columns:1fr; gap:34px; }
     .g-news { grid-template-columns:1fr; }
     .g-cal { grid-template-columns:1fr; gap:34px; }
     .g-forms { grid-template-columns:1fr; gap:26px; }
@@ -147,7 +145,6 @@
   };
   var img = function (id) { return 'assets/img/' + IMG[id]; };
 
-  var heroImg = 'champs.webp';
   var champsImg = 'assets/img/champs-2025.jpg';
   var sponsorImg = '8x4+ft+Marching+Band+Sponsor+banner+2025+v2-01+(1).webp';
 
@@ -296,30 +293,17 @@
 
     // HERO
     '<section style="background:radial-gradient(120% 100% at 78% 8%, #C1121F 0%, #A31621 44%, #3D0B10 100%); color:#fff; overflow:hidden; position:relative;">' +
-      '<div class="g-hero" style="max-width:1200px; margin:0 auto; padding:74px 28px 84px;">' +
-        '<div style="animation:emRise .6s ease both;">' +
-          '<div style="display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.4); color:#ffffff; padding:7px 15px; border-radius:100px; font-size:12.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;">2025 ISSMA State Finals · Nov 8</div>' +
-          '<h1 style="font-family:\'Anton\'; font-weight:400; font-size:clamp(52px,6.4vw,92px); line-height:.92; letter-spacing:.005em; text-transform:uppercase; margin:22px 0 0;">Back to back<br>to back<br><span style="background:linear-gradient(100deg,#F2CDD0 30%,#ffffff 50%,#F2CDD0 70%); background-size:200% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:emShine 4.5s linear infinite;">to BACK.</span></h1>' +
-          '<p style="font-family:\'Source Serif 4\', serif; font-size:20px; line-height:1.5; color:#F0DADC; max-width:520px; margin:24px 0 0;">On November 8th the Marching Mustangs earned their <strong style="color:#fff;">5th Class&nbsp;C State Championship</strong> — and their 4th straight. A dynasty built on the field, one rep at a time.</p>' +
-          '<div style="display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;">' +
-            '<a href="#" onclick="return EPA.go(\'forms\')" class="btn-white" style="background:#ffffff; color:#A31621; font-weight:700; padding:15px 26px; border-radius:5px; font-size:15px; box-shadow:0 6px 0 #E2B9BC; transition:transform .12s ease, box-shadow .12s ease;">Performance schedule &amp; itineraries</a>' +
-            '<a href="#news" onclick="return EPA.goSection(\'news\')" class="btn-outline" style="border:1.5px solid rgba(255,255,255,.55); color:#fff; font-weight:600; padding:15px 26px; border-radius:5px; font-size:15px; transition:background .15s ease;">Read the latest news</a>' +
+      '<div style="max-width:1000px; margin:0 auto; padding:76px 28px 84px; text-align:center;">' +
+        '<div style="display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.4); color:#ffffff; padding:7px 15px; border-radius:100px; font-size:12.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; animation:emRise .6s ease both;">2026 Show Reveal</div>' +
+        '<h1 style="margin:32px 0 0; animation:emRise .8s ease .15s both;">' +
+          '<div style="display:inline-block; background:#fff; border-radius:16px; padding:26px 34px; box-shadow:0 28px 64px rgba(0,0,0,.36); max-width:100%;">' +
+            '<img src="assets/img/ties-that-bind.png" alt="The Ties That Bind — Edgewood Performing Arts 2026 production" style="width:100%; max-width:560px; height:auto; display:block;">' +
           '</div>' +
-        '</div>' +
-        '<div style="position:relative; animation:emRise .7s ease .1s both;">' +
-          '<div style="background:#fff; border-radius:16px; padding:13px 13px 8px; box-shadow:0 28px 64px rgba(0,0,0,.36);">' +
-            '<div style="width:100%; aspect-ratio:16/10; border-radius:8px; overflow:hidden; background:#E8EAED;"><img src="' + esc(heroImg) + '" alt="2025 ISSMA Class C State Champions" style="width:100%; height:100%; object-fit:cover; display:block;"></div>' +
-            '<div style="display:flex; align-items:center; justify-content:space-between; gap:14px; padding:13px 6px 6px;">' +
-              '<div>' +
-                '<div style="font-family:\'Anton\'; font-size:18px; color:#A31621; line-height:1; text-transform:uppercase;">2025 State Champions</div>' +
-                '<div style="font-size:11.5px; color:#646B76; margin-top:5px; letter-spacing:.02em;">ISSMA Class C · Lucas Oil Stadium</div>' +
-              '</div>' +
-              '<div style="flex:none; text-align:center; background:#A31621; color:#fff; border-radius:10px; padding:9px 15px;">' +
-                '<div style="font-family:\'Anton\'; font-size:27px; line-height:.82;">5×</div>' +
-                '<div style="font-size:8.5px; letter-spacing:.13em; text-transform:uppercase; font-weight:700; margin-top:3px;">Champs</div>' +
-              '</div>' +
-            '</div>' +
-          '</div>' +
+        '</h1>' +
+        '<p style="font-family:\'Source Serif 4\', serif; font-size:20px; line-height:1.5; color:#F0DADC; max-width:600px; margin:30px auto 0; animation:emRise .8s ease .3s both;">The Marching Mustangs are proud to present our 2026 production. The season opens <strong style="color:#fff;">September 19 at Greenwood</strong> and runs through ISSMA State Finals on <strong style="color:#fff;">November 7</strong>.</p>' +
+        '<div style="display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; justify-content:center; animation:emRise .8s ease .45s both;">' +
+          '<a href="#" onclick="return EPA.go(\'forms\')" class="btn-white" style="background:#ffffff; color:#A31621; font-weight:700; padding:15px 26px; border-radius:5px; font-size:15px; box-shadow:0 6px 0 #E2B9BC; transition:transform .12s ease, box-shadow .12s ease;">Performance schedule &amp; itineraries</a>' +
+          '<a href="#news" onclick="return EPA.goSection(\'news\')" class="btn-outline" style="border:1.5px solid rgba(255,255,255,.55); color:#fff; font-weight:600; padding:15px 26px; border-radius:5px; font-size:15px; transition:background .15s ease;">Read the latest news</a>' +
         '</div>' +
       '</div>' +
     '</section>' +
