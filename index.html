@@ -57,11 +57,9 @@
   .g-cal-tiles { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
   .g-forms { display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center; }
   .g-momma { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-  .g-footer { display:grid; grid-template-columns:1fr auto; gap:36px; }
   .g-ann { display:grid; grid-template-columns:1fr 1.2fr; }
 
   @media (max-width: 960px) {
-    .g-footer { grid-template-columns:1fr 1fr; row-gap:28px; }
     .g-momma { grid-template-columns:repeat(2,1fr); }
   }
   @media (max-width: 840px) {
@@ -74,7 +72,7 @@
   @media (max-width: 560px) {
     .g-stats { grid-template-columns:repeat(2,1fr); row-gap:22px; }
     .g-cal-tiles { grid-template-columns:1fr; }
-    .g-momma, .g-footer { grid-template-columns:1fr; }
+    .g-momma { grid-template-columns:1fr; }
   }
 </style>
 </head>
@@ -104,26 +102,16 @@
 
   <!-- ===== FOOTER ===== -->
   <footer style="background:#15171B; color:#A3A9B4;">
-    <div class="g-footer" style="max-width:1200px; margin:0 auto; padding:56px 28px 40px;">
-      <div>
-        <div style="display:flex; align-items:center; gap:12px;">
-          <img src="assets/EPA-logo-white.png" alt="Edgewood Performing Arts" style="height:64px; width:auto; display:block;">
-        </div>
-        <p style="font-size:14px; line-height:1.6; margin:18px 0 0; max-width:320px; color:#868D97;">Edgewood Performing Arts · Marching Mustangs. ISSMA Class C State Champions.</p>
+    <div style="max-width:1200px; margin:0 auto; padding:24px 28px; display:flex; align-items:center; justify-content:space-between; gap:24px 36px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <img src="assets/EPA-logo-white.png" alt="Edgewood Performing Arts" style="height:34px; width:auto; display:block;">
+        <span style="font-size:12.5px; color:#868D97;">© 2026 Edgewood Performing Arts · Go Mustangs 🐎</span>
       </div>
-      <div>
-        <div style="color:#fff; font-weight:700; font-size:13px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:14px;">Partners</div>
-        <div style="display:flex; flex-direction:column; gap:10px; font-size:14.5px;">
-          <a class="foot-link" href="https://www.paigesmusic.com/paiges/run?id=6" target="_blank" rel="noopener">Paige's Music</a>
-          <a class="foot-link" href="https://creekbendmedia.com/" target="_blank" rel="noopener">Creekbend Media</a>
-          <a class="foot-link" href="http://www.musictravel.com/index.html" target="_blank" rel="noopener">Music Travel</a>
-        </div>
-      </div>
-    </div>
-    <div style="border-top:1px solid rgba(255,255,255,.1);">
-      <div style="max-width:1200px; margin:0 auto; padding:18px 28px; font-size:12.5px; color:#868D97; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;">
-        <span>© 2026 Edgewood Performing Arts</span>
-        <span>Go Mustangs 🐎</span>
+      <div style="display:flex; align-items:center; gap:20px; font-size:13.5px; flex-wrap:wrap;">
+        <span style="font-size:11.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#868D97;">Partners</span>
+        <a class="foot-link" href="https://www.paigesmusic.com/paiges/run?id=6" target="_blank" rel="noopener">Paige's Music</a>
+        <a class="foot-link" href="https://creekbendmedia.com/" target="_blank" rel="noopener">Creekbend Media</a>
+        <a class="foot-link" href="http://www.musictravel.com/index.html" target="_blank" rel="noopener">Music Travel</a>
       </div>
     </div>
   </footer>
