@@ -260,21 +260,11 @@
     { name: 'Spirit wear', desc: 'Order Marching Mustangs apparel.', url: 'https://drive.google.com/open?id=0B1fhlaVa0zPkX2hsM2V5T2ZoYVk&authuser=0', action: 'Open' }
   ];
 
-  // Booster board and directors. Roster as published on the current site.
-  var rosterYear = '2022–2023';
+  // Directors, as published on the current site.
   var directors = [
     { name: 'Aaron Wells', title: 'Band Director', phone: '812-829-8046', email: 'awells@rbbschools.net' },
     { name: 'Curt Koehler', title: 'EJHS Director', phone: '812-251-8506', email: 'ckoehler@rbbschools.net' },
     { name: 'Derek Latham', title: 'Director of Pageantry', phone: '812-585-0336', email: 'dlatham@rbbschools.net' }
-  ];
-  var boosters = [
-    { name: 'Aryn Lucas', title: 'President', phone: '812-345-3716', email: 'edgewoodbandpresident@gmail.com' },
-    { name: 'Gwen Shields', title: 'VP of Committees', phone: '812-340-9924', email: 'edgewoodbandcommittees@gmail.com' },
-    { name: 'Beth Hoard', title: 'VP of Fundraising', phone: '812-606-0558', email: 'edgewoodbandfundraising@gmail.com' },
-    { name: 'Mark Connelley', title: 'Treasurer', phone: '812-219-3052', email: 'edgewoodbandtreasurer@gmail.com' },
-    { name: 'Kirie Leturgez', title: 'Asst. Treasurer', phone: '812-369-5097', email: 'edgewoodbandtreasurer@gmail.com' },
-    { name: 'Angie Grimes', title: 'Secretary', phone: '812-320-9960', email: 'edgewoodbandtreasurer@gmail.com' },
-    { name: 'Kevin Cherry', title: 'JH Liaison', phone: '812-345-2945', email: 'edgewoodbandliaison@gmail.com' }
   ];
 
   function esc(s) {
@@ -535,19 +525,11 @@
       '</section>' +
 
       // DIRECTORS
-      '<section style="max-width:1060px; margin:0 auto; padding:40px 28px 0;">' +
+      '<section style="max-width:1060px; margin:0 auto; padding:40px 28px 80px;">' +
         '<h2 style="font-family:\'Anton\'; font-weight:400; font-size:clamp(26px,3.2vw,36px); text-transform:uppercase; margin:0 0 20px; color:#16181D;">Directors</h2>' +
         '<div class="g-people">' + directors.map(card).join('') + '</div>' +
       '</section>' +
 
-      // BOOSTER BOARD
-      '<section style="max-width:1060px; margin:0 auto; padding:40px 28px 80px;">' +
-        '<div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:20px;">' +
-          '<h2 style="font-family:\'Anton\'; font-weight:400; font-size:clamp(26px,3.2vw,36px); text-transform:uppercase; margin:0; color:#16181D;">Booster board</h2>' +
-          '<span style="font-size:12.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#646B76;">' + esc(rosterYear) + '</span>' +
-        '</div>' +
-        '<div class="g-people">' + boosters.map(card).join('') + '</div>' +
-      '</section>' +
     '</div>';
   }
 
