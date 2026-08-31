@@ -68,6 +68,7 @@
   .cal-tile:hover { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.45); }
   .card-momma:hover { transform:translateY(-4px); }
   .row-resource:hover { background:#FCF0F1; }
+  .dir-photo { flex:none; width:56px; height:56px; border-radius:50%; object-fit:cover; object-position:50% 28%; filter:grayscale(100%); background:#E8EAED; }
   .contact-line { color:#A31621; }
   .contact-line:hover { text-decoration:underline; }
   .foot-link:hover { color:#ffffff; }
@@ -264,9 +265,9 @@
 
   // Directors, as published on the current site.
   var directors = [
-    { name: 'Aaron Wells', title: 'Band Director', phone: '812-829-8046', email: 'awells@rbbschools.net' },
-    { name: 'Curt Koehler', title: 'EJHS Director', phone: '812-251-8506', email: 'ckoehler@rbbschools.net' },
-    { name: 'Derek Latham', title: 'Director of Pageantry', phone: '812-585-0336', email: 'dlatham@rbbschools.net' }
+    { name: 'Aaron Wells', title: 'Band Director', phone: '812-829-8046', email: 'awells@rbbschools.net', photo: 'assets/Aaron.jpeg' },
+    { name: 'Curt Koehler', title: 'EJHS Director', phone: '812-251-8506', email: 'ckoehler@rbbschools.net', photo: 'assets/Curt.jpeg' },
+    { name: 'Derek Latham', title: 'Director of Pageantry', phone: '812-585-0336', email: 'dlatham@rbbschools.net', photo: 'assets/Derek.jpeg' }
   ];
 
   function esc(s) {
@@ -496,10 +497,20 @@
 
   function renderContacts() {
     var card = function (p) {
+      // alt is empty on purpose: the name sits right beside the photo, so a
+      // screen reader would otherwise announce it twice.
+      var photo = p.photo
+        ? '<img class="dir-photo" src="' + esc(p.photo) + '" alt="">'
+        : '';
       return '<div style="background:#fff; border-radius:12px; padding:20px 22px; box-shadow:0 6px 16px rgba(120,15,25,.07);">' +
-        '<div style="font-size:11.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#A31621;">' + esc(p.title) + '</div>' +
-        '<div style="font-family:\'Source Serif 4\', serif; font-size:20px; margin-top:6px; color:#16181D;">' + esc(p.name) + '</div>' +
-        '<div style="display:flex; flex-direction:column; gap:5px; margin-top:12px; font-size:14.5px;">' +
+        '<div style="display:flex; align-items:center; gap:14px;">' +
+          photo +
+          '<div style="min-width:0;">' +
+            '<div style="font-size:11.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#A31621;">' + esc(p.title) + '</div>' +
+            '<div style="font-family:\'Source Serif 4\', serif; font-size:20px; margin-top:4px; color:#16181D;">' + esc(p.name) + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div style="display:flex; flex-direction:column; gap:5px; margin-top:14px; font-size:14.5px;">' +
           '<a class="contact-line" href="tel:' + esc(p.phone.replace(/[^0-9]/g, '')) + '">' + esc(p.phone) + '</a>' +
           '<a class="contact-line" href="mailto:' + esc(p.email) + '" style="word-break:break-all;">' + esc(p.email) + '</a>' +
         '</div>' +
