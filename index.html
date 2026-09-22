@@ -48,7 +48,19 @@
   @keyframes emMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   @keyframes emRise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
-  /* The show-history marquee scrolls continuously; honour a reduced-motion preference */
+  /* A slim celebration strip above the sticky navigation. */
+  .result-banner { display:flex; align-items:center; height:28px; background:#A31621; color:#fff; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; }
+  .result-window { flex:1; min-width:0; overflow:hidden; }
+  .result-track { display:flex; width:max-content; animation:emMarquee 32s linear infinite; }
+  .result-group { display:flex; flex:none; align-items:center; justify-content:space-around; min-width:calc(100vw - 32px); gap:48px; padding:0 24px; }
+  .result-group span { white-space:nowrap; font-size:10.5px; font-weight:700; line-height:28px; letter-spacing:.1em; text-transform:uppercase; }
+  .result-banner:hover .result-track, .result-banner:focus-within .result-track, .result-banner.is-paused .result-track { animation-play-state:paused; }
+  .result-pause { flex:none; width:32px; height:28px; padding:0; border:0; border-left:1px solid rgba(255,255,255,.25); background:transparent; color:inherit; cursor:pointer; font-size:12px; }
+  .result-pause:hover { background:rgba(0,0,0,.15); }
+  .result-pause:focus-visible { outline:2px solid #fff; outline-offset:-3px; }
+
+  /* Honour reduced motion for both scrolling strips. */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: .01ms !important;
@@ -56,6 +68,10 @@
       transition-duration: .01ms !important;
       scroll-behavior: auto !important;
     }
+    .result-track { width:100%; animation:none !important; transform:none; }
+    .result-group { min-width:0; width:100%; gap:0; padding:0 8px; }
+    .result-group + .result-group, .result-group span + span, .result-pause { display:none; }
+    .result-group span { font-size:10px; letter-spacing:.04em; }
   }
 
   /* Nav links */
@@ -160,6 +176,25 @@
 <body>
 
 <div style="min-height:100vh; display:flex; flex-direction:column;">
+
+  <aside id="result-banner" class="result-banner" aria-label="Competition result">
+    <p class="sr-only">1st place at Greenwood — Go Mustangs!</p>
+    <div class="result-window" aria-hidden="true">
+      <div class="result-track">
+        <div class="result-group">
+          <span>1st place at Greenwood &nbsp;·&nbsp; Go Mustangs!</span>
+          <span>1st place at Greenwood &nbsp;·&nbsp; Go Mustangs!</span>
+          <span>1st place at Greenwood &nbsp;·&nbsp; Go Mustangs!</span>
+        </div>
+        <div class="result-group">
+          <span>1st place at Greenwood &nbsp;·&nbsp; Go Mustangs!</span>
+          <span>1st place at Greenwood &nbsp;·&nbsp; Go Mustangs!</span>
+          <span>1st place at Greenwood &nbsp;·&nbsp; Go Mustangs!</span>
+        </div>
+      </div>
+    </div>
+    <button id="result-pause" class="result-pause" type="button" aria-label="Pause scrolling announcement" aria-pressed="false" title="Pause scrolling announcement"><span aria-hidden="true">Ⅱ</span></button>
+  </aside>
 
   <!-- ===== HEADER / NAV ===== -->
   <header style="background:#ffffff; color:#16181D; position:sticky; top:0; z-index:50; border-bottom:1px solid #E4E7EB; box-shadow:0 4px 12px rgba(22,24,29,.05);">
@@ -297,8 +332,8 @@
   // Add each folder's url as its itinerary is posted.
   var seasonYear = '2026';
   var mommaWells = [
-    { name: 'Greenwood', date: 'September 19', url: '' },
-    { name: 'Avon', date: 'September 26', url: '' },
+    { name: 'Greenwood', date: 'September 19', url: 'https://drive.google.com/drive/folders/1mP4_UPkxffSDjEdVmM-8dnlFAREylEsz?usp=drive_link' },
+    { name: 'Avon', date: 'September 26', url: 'https://drive.google.com/drive/folders/1948y4y39vFVVJjDSHmXf5PzJK4s80ZYv?usp=sharing' },
     { name: 'Jasper', date: 'October 3', url: '' },
     { name: 'Regionals', date: 'October 10', url: '' },
     { name: 'BOA', date: 'October 16', url: '' },
@@ -654,6 +689,15 @@
     if (h) document.documentElement.style.setProperty('--header-h', h.offsetHeight + 'px');
   }
   window.addEventListener('resize', syncHeaderOffset);
+
+  document.getElementById('result-pause').addEventListener('click', function () {
+    var paused = document.getElementById('result-banner').classList.toggle('is-paused');
+    var label = paused ? 'Resume scrolling announcement' : 'Pause scrolling announcement';
+    this.setAttribute('aria-pressed', String(paused));
+    this.setAttribute('aria-label', label);
+    this.title = label;
+    this.querySelector('span').textContent = paused ? '▶' : 'Ⅱ';
+  });
 
   window.EPA = EPA;
   EPA.render();
