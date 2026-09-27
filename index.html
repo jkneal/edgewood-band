@@ -72,8 +72,8 @@
     .result-track { width:100%; animation:none !important; transform:none; }
     .result-banner { height:auto; min-height:28px; }
     .result-group { min-width:0; width:100%; gap:0 24px; padding:0 8px; flex-wrap:wrap; }
-    .result-group + .result-group, .result-group span:nth-child(n+3), .result-pause { display:none; }
-    .result-group span { font-size:10px; letter-spacing:.04em; }
+    .result-group + .result-group, .result-group span + span, .result-pause { display:none; }
+    .result-group span { font-size:10px; letter-spacing:.04em; white-space:normal; text-align:center; }
   }
 
   /* Nav links */
@@ -209,20 +209,16 @@
 <div style="min-height:100vh; display:flex; flex-direction:column;">
 
   <aside id="result-banner" class="result-banner" aria-label="Band announcements">
-    <p class="sr-only">1st place at Greenwood — Go Mustangs! 1st place at Avon!</p>
+    <p class="sr-only">1st place at Greenwood, 1st place at Avon! — Go Mustangs!</p>
     <div class="result-window" aria-hidden="true">
       <div class="result-track">
         <div class="result-group">
-          <span>1st place at Greenwood &nbsp;·&nbsp; Go Mustangs!</span>
-          <span>1st place at Avon!</span>
-          <span>1st place at Greenwood &nbsp;·&nbsp; Go Mustangs!</span>
-          <span>1st place at Avon!</span>
+          <span>1st place at Greenwood, 1st place at Avon! &nbsp;·&nbsp; Go Mustangs!</span>
+          <span>1st place at Greenwood, 1st place at Avon! &nbsp;·&nbsp; Go Mustangs!</span>
         </div>
         <div class="result-group">
-          <span>1st place at Greenwood &nbsp;·&nbsp; Go Mustangs!</span>
-          <span>1st place at Avon!</span>
-          <span>1st place at Greenwood &nbsp;·&nbsp; Go Mustangs!</span>
-          <span>1st place at Avon!</span>
+          <span>1st place at Greenwood, 1st place at Avon! &nbsp;·&nbsp; Go Mustangs!</span>
+          <span>1st place at Greenwood, 1st place at Avon! &nbsp;·&nbsp; Go Mustangs!</span>
         </div>
       </div>
     </div>
