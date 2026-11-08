@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Edgewood Marching Mustangs — ISSMA Class C State Champions</title>
-<meta name="description" content="Edgewood Performing Arts · Marching Mustangs. 5× ISSMA Class C State Champions. News, calendars, forms & itineraries, and 15 years of productions.">
+<meta name="description" content="Edgewood Performing Arts · Marching Mustangs. 6× ISSMA Class C State Champions. News, calendars, forms & itineraries, and 16 years of productions.">
 <link rel="canonical" href="https://www.edgewoodmusic.org/">
 <meta name="theme-color" content="#ffffff">
 
@@ -16,15 +16,15 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://www.edgewoodmusic.org/">
 <meta property="og:title" content="Edgewood Marching Mustangs — ISSMA Class C State Champions">
-<meta property="og:description" content="5× ISSMA Class C State Champions. Announcements, performing arts calendars, forms & itineraries, and 15 years of productions.">
-<meta property="og:image" content="https://www.edgewoodmusic.org/assets/img/og-cover.jpg">
+<meta property="og:description" content="6× ISSMA Class C State Champions. Announcements, performing arts calendars, forms & itineraries, and 16 years of productions.">
+<meta property="og:image" content="https://www.edgewoodmusic.org/assets/img/og-champs-2026.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The Edgewood Marching Mustangs performing on the field at Lucas Oil Stadium.">
+<meta property="og:image:alt" content="The Edgewood Marching Mustangs celebrate their 2026 ISSMA Class C State Championship and fifth consecutive title.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Edgewood Marching Mustangs — ISSMA Class C State Champions">
-<meta name="twitter:description" content="5× ISSMA Class C State Champions. Announcements, calendars, forms & itineraries, and 15 years of productions.">
-<meta name="twitter:image" content="https://www.edgewoodmusic.org/assets/img/og-cover.jpg">
+<meta name="twitter:description" content="6× ISSMA Class C State Champions. Announcements, calendars, forms & itineraries, and 16 years of productions.">
+<meta name="twitter:image" content="https://www.edgewoodmusic.org/assets/img/og-champs-2026.jpg">
 
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/img/icon-512.png" sizes="512x512">
@@ -129,16 +129,22 @@
   .contact-line:hover { text-decoration:underline; }
   .foot-link:hover { color:#ffffff; }
 
-  /* Keep the show artwork crisp while the performance photo fills the panel. */
-  .show-hero { position:relative; isolation:isolate; overflow:hidden; background:#fff; color:#16181D; border-bottom:1px solid #EDEDED; }
-  .show-hero-photo { position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover; object-position:center 44%; }
-  .show-hero::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg, #fff 0%, rgba(255,255,255,.97) 28%, rgba(255,255,255,.85) 43%, rgba(255,255,255,.25) 65%, rgba(255,255,255,.04) 100%); }
-  .show-hero-inner { max-width:1200px; margin:0 auto; padding:84px 28px 76px; }
+  /* Celebrate the championship while keeping the full team visible. */
+  .show-hero { position:relative; isolation:isolate; overflow:hidden; background:#171b1e; color:#fff; border-bottom:1px solid #303438; }
+  .show-hero-photo { position:absolute; top:0; right:0; z-index:-2; width:50%; max-width:760px; height:auto; display:block; }
+  .show-hero::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg, #171b1e 0%, #171b1e 47%, rgba(23,27,30,.1) 50%, transparent 54%); }
+  .confetti { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+  .confetti::before, .confetti::after { content:""; position:absolute; inset:-320px 0 0; background-repeat:repeat; background-size:260px 320px; animation:confetti-fall 10s linear infinite; }
+  .confetti::before { background-image:radial-gradient(ellipse 3px 7px at 24px 38px, #ffd85d 95%, transparent), radial-gradient(ellipse 5px 3px at 120px 102px, #d22630 95%, transparent), radial-gradient(ellipse 3px 6px at 210px 182px, #f8f4e8 95%, transparent), radial-gradient(ellipse 4px 3px at 65px 265px, #ffd85d 95%, transparent); opacity:.8; }
+  .confetti::after { background-image:radial-gradient(ellipse 5px 3px at 75px 54px, #f8f4e8 95%, transparent), radial-gradient(ellipse 3px 5px at 195px 125px, #ffd85d 95%, transparent), radial-gradient(ellipse 4px 7px at 40px 210px, #d22630 95%, transparent), radial-gradient(ellipse 3px 4px at 145px 288px, #ffd85d 95%, transparent); animation-duration:15s; animation-delay:-5s; opacity:.65; }
+  @keyframes confetti-fall { from { transform:translateY(0); } to { transform:translateY(320px); } }
+  @media (prefers-reduced-motion: reduce) { .confetti::before, .confetti::after { animation:none !important; } }
+  .show-hero-inner { position:relative; max-width:1200px; margin:0 auto; padding:84px 28px 76px; }
   .show-hero-copy { max-width:500px; text-align:center; }
-  .show-hero-art { width:100%; max-width:440px; height:auto; display:block; margin:0 auto; mix-blend-mode:multiply; }
+  .show-hero-art { width:100%; max-width:440px; height:auto; display:block; margin:0 auto; background:#fff; border-radius:3px; padding:8px; }
   @media (max-width: 840px) {
-    .show-hero-photo { height:360px; object-position:center 42%; }
-    .show-hero::after { background:linear-gradient(180deg, rgba(255,255,255,0) 130px, rgba(255,255,255,.75) 260px, #fff 355px); }
+    .show-hero-photo { left:0; width:100%; max-width:none; height:360px; object-fit:cover; object-position:center top; }
+    .show-hero::after { background:linear-gradient(180deg, rgba(23,27,30,0) 100px, rgba(23,27,30,.65) 260px, #171b1e 355px); }
     .show-hero-inner { padding:280px 24px 44px; }
     .show-hero-copy { margin:0 auto; }
   }
@@ -183,8 +189,8 @@
   "alternateName": "Edgewood Performing Arts",
   "url": "https://www.edgewoodmusic.org/",
   "logo": "https://www.edgewoodmusic.org/assets/img/icon-512.png",
-  "image": "https://www.edgewoodmusic.org/assets/img/og-cover.jpg",
-  "description": "The Edgewood High School Marching Mustangs, part of Edgewood Performing Arts \u2014 5\u00d7 ISSMA Class C State Champions.",
+  "image": "https://www.edgewoodmusic.org/assets/img/og-champs-2026.jpg",
+  "description": "The Edgewood High School Marching Mustangs, part of Edgewood Performing Arts \u2014 6\u00d7 ISSMA Class C State Champions.",
   "genre": "Marching band",
   "email": "ehsperformingarts@gmail.com",
   "location": {
@@ -209,16 +215,16 @@
 <div style="min-height:100vh; display:flex; flex-direction:column;">
 
   <aside id="result-banner" class="result-banner" aria-label="Band announcements">
-    <p class="sr-only">1st place at Greenwood, 1st place at Avon, Gold rating at Jasper District, Gold rating at Center Grove Regional, Advanced from Semi-State — Go Mustangs!</p>
+    <p class="sr-only">ISSMA Class C State Champions!</p>
     <div class="result-window" aria-hidden="true">
       <div class="result-track">
         <div class="result-group">
-          <span>1st place at Greenwood, 1st place at Avon, Gold rating at Jasper District, Gold rating at Center Grove Regional, Advanced from Semi-State &nbsp;·&nbsp; Go Mustangs!</span>
-          <span>1st place at Greenwood, 1st place at Avon, Gold rating at Jasper District, Gold rating at Center Grove Regional, Advanced from Semi-State &nbsp;·&nbsp; Go Mustangs!</span>
+          <span>ISSMA Class C State Champions!</span>
+          <span>ISSMA Class C State Champions!</span>
         </div>
         <div class="result-group">
-          <span>1st place at Greenwood, 1st place at Avon, Gold rating at Jasper District, Gold rating at Center Grove Regional, Advanced from Semi-State &nbsp;·&nbsp; Go Mustangs!</span>
-          <span>1st place at Greenwood, 1st place at Avon, Gold rating at Jasper District, Gold rating at Center Grove Regional, Advanced from Semi-State &nbsp;·&nbsp; Go Mustangs!</span>
+          <span>ISSMA Class C State Champions!</span>
+          <span>ISSMA Class C State Champions!</span>
         </div>
       </div>
     </div>
@@ -306,8 +312,8 @@
 
   var stats = [
     { num: 'Class C', label: 'ISSMA division' },
-    { num: '5×', label: 'State titles' },
-    { num: '4', label: 'Straight' }
+    { num: '6×', label: 'State titles' },
+    { num: '5', label: 'Straight' }
   ];
 
   var newsList = [
@@ -326,6 +332,7 @@
   ];
 
   var shows = [
+    { year: '2026', title: 'The Ties That Bind', champ: true, img: 'assets/img/ties-that-bind.png', thumbnail: 'assets/img/ties-that-bind.png' },
     { year: '2025', title: 'Transient', champ: true, img: img('612d494d-4f6b-4ae9-a104-50b6ff6004c6', 'Transient.jpg') },
     { year: '2024', title: 'Skewed', champ: true, img: img('f5cabc9d-a0e7-4e35-9b6b-42ec8fb3ca86', 'SKEWED.jpg') },
     { year: '2023', title: 'On Your Spot', champ: true, img: img('93ddff05-24a0-4465-8e50-16373de5dbd6', '2023_onyourspot.jpg') },
@@ -375,13 +382,14 @@
   var featuredImg = img('291f1a89-8140-4f37-81ea-fb7e3f56d940', 'End+Set.JPG', 1200);
 
   var allNews = [
+    { tag: 'Championship', date: 'November 7, 2026', title: 'Five in a row!', body: 'The Marching Mustangs are the 2026 ISSMA Class C State Champions! The Ties That Bind earned the program its fifth consecutive state title.', hasImg: true, img: 'assets/img/champs-2026.jpg' },
     { tag: 'Championship', date: 'November 11, 2025', title: 'Back to Back to Back to BACK!', body: 'On November 8th, 2025 the Marching Mustangs earned their 5th Class C State Championship and their 4th STRAIGHT! An unforgettable end to an incredible season.', hasImg: true, img: champsImg },
     { tag: 'Sponsors', date: 'September 12, 2025', title: 'Our amazing 2025 sponsors!', body: 'The Edgewood Performing Arts would like to thank ALL of our wonderful 2025 sponsors! Without your help and support we would not be able to bring such amazing art to life.', hasImg: true, img: img('8fc79114-e45a-4f50-ab0d-08972c3e1d4f', '8x4+ft+Marching+Band+Sponsor+banner+2025+v2-01+%281%29.jpg') },
     { tag: 'Performances', date: 'August 28, 2025', title: 'Our 2025 production', body: 'Click through for information on any of our upcoming performances — Center Grove, Jasper, Regionals, BOA, Semi-State, and State Finals itineraries all available.', hasImg: true, img: 'assets/img/2025-production.jpg' },
     { tag: 'Championship', date: 'November 13, 2024', title: '#Epeat!', body: 'On November 9th the Marching Mustangs performed in the ISSMA State Marching Band Competition and earned their 3rd straight Class C State Championship!', hasImg: true, img: img('291f1a89-8140-4f37-81ea-fb7e3f56d940', 'End+Set.JPG') },
     { tag: 'Show reveal', date: 'September 13, 2024', title: 'The Edgewood Marching Mustangs are proud to present…', body: 'The reveal of our 2024 competition production. A new story to tell on the field this fall.', hasImg: true, img: 'assets/img/2024-reveal.jpg' },
     { tag: 'Championship', date: 'November 30, 2023', title: 'Back to Back ISSMA Class C State Champions!', body: 'Two years running — the Marching Mustangs claim consecutive Class C State Championships.', hasImg: true, img: 'assets/img/2023-finals.jpg' },
-    { tag: 'Championship', date: 'November 9, 2022', title: "Winner's drink milk!", body: 'What an amazing group of humans! The Marching Mustangs took the 2022 ISSMA Class C State Championship — the title that started the current four-year streak.', hasImg: true, img: 'assets/img/2022-state-champs.jpg' }
+    { tag: 'Championship', date: 'November 9, 2022', title: "Winner's drink milk!", body: 'What an amazing group of humans! The Marching Mustangs took the 2022 ISSMA Class C State Championship — the title that started the streak.', hasImg: true, img: 'assets/img/2022-state-champs.jpg' }
   ];
 
   // 2026 competition schedule, from the Marching Mustangs calendar.
@@ -446,10 +454,10 @@
     }).join('');
 
     var showsHtml = showsLoop.map(function (sh, i) {
-      var thumbnail = sh.img.replace('assets/img/', 'assets/img/shows/').replace(/\.jpg$/, '.webp');
+      var thumbnail = sh.thumbnail || sh.img.replace('assets/img/', 'assets/img/shows/').replace(/\.jpg$/, '.webp');
       var badge = sh.champ ? '<span style="font-size:9.5px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; background:#ffffff; color:#A31621; padding:3px 8px; border-radius:100px;">Champs</span>' : '';
       return '<div' + (i >= shows.length ? ' aria-hidden="true"' : '') + ' style="flex:none; width:224px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; overflow:hidden;">' +
-        '<div style="height:150px; background:#0F1114; overflow:hidden;"><img src="' + esc(thumbnail) + '" alt="' + esc(sh.title) + ' show art" width="224" height="150" loading="eager" fetchpriority="low" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;"></div>' +
+        '<div style="height:150px; background:' + (sh.thumbnail ? '#fff' : '#0F1114') + '; overflow:hidden;"><img src="' + esc(thumbnail) + '" alt="' + esc(sh.title) + ' show art" width="224" height="150" loading="eager" fetchpriority="low" decoding="async" style="width:100%; height:100%; object-fit:' + (sh.thumbnail ? 'contain' : 'cover') + '; display:block;"></div>' +
         '<div style="padding:15px 18px 19px;">' +
           '<div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">' +
             '<div style="font-family:\'Anton\'; font-size:26px; color:#E5E8EC; line-height:.9;">' + esc(sh.year) + '</div>' + badge +
@@ -462,20 +470,21 @@
     return '' +
     '<div>' +
 
-    // HERO — a soft white gradient connects the show artwork to the live performance.
+    // HERO — celebrate the championship with the team photo and show artwork.
     '<section class="show-hero">' +
-      '<img class="show-hero-photo" src="assets/img/2026-ties-performance.jpg" alt="" width="2048" height="1365" fetchpriority="high">' +
+      '<img class="show-hero-photo" src="assets/img/champs-2026.jpg" alt="" width="1080" height="1080" fetchpriority="high">' +
+      '<div class="confetti" aria-hidden="true"></div>' +
       '<div class="show-hero-inner"><div class="show-hero-copy">' +
-        '<div style="font-size:12.5px; font-weight:800; letter-spacing:.24em; text-transform:uppercase; color:#1A336F; animation:emRise .6s ease both;">2026 Show Reveal</div>' +
+        '<div style="font-size:12.5px; font-weight:800; letter-spacing:.24em; text-transform:uppercase; color:#ffdc5e; animation:emRise .6s ease both;">2026 ISSMA Class C State Champions</div>' +
         // h1 wraps the artwork so the home page has a real top-level heading;
         // the alt text is what assistive tech and crawlers read as its content.
         '<h1 style="margin:28px 0 0; animation:emRise .8s ease .12s both;">' +
           '<img class="show-hero-art" src="assets/img/ties-that-bind.png" alt="Edgewood Marching Mustangs — The Ties That Bind, our 2026 production">' +
         '</h1>' +
-        '<p style="font-family:\'Source Serif 4\', serif; font-size:19px; line-height:1.6; color:#4A4A4A; max-width:520px; margin:32px auto 0; animation:emRise .8s ease .24s both;">The Marching Mustangs are proud to present our 2026 production. The season opens <strong style="color:#C2704E;">September&nbsp;19 at Greenwood</strong> and runs through ISSMA State Finals on <strong style="color:#1A336F;">November&nbsp;7</strong>.</p>' +
+        '<p style="font-family:\'Source Serif 4\', serif; font-size:19px; line-height:1.6; color:#f1f1ef; max-width:520px; margin:32px auto 0; animation:emRise .8s ease .24s both;">The Marching Mustangs are 2026 ISSMA Class C State Champions! With <strong style="color:#ffdc5e;">The Ties That Bind</strong>, the Mustangs have made history with five consecutive state titles.</p>' +
         '<div style="display:flex; justify-content:center; gap:6px; margin-top:34px; animation:emRise .8s ease .36s both;">' +
           '<span style="width:26px; height:4px; border-radius:2px; background:#C2704E;"></span>' +
-          '<span style="width:26px; height:4px; border-radius:2px; background:#1A336F;"></span>' +
+          '<span style="width:26px; height:4px; border-radius:2px; background:#ffffff;"></span>' +
           '<span style="width:26px; height:4px; border-radius:2px; background:#F3ED3A;"></span>' +
         '</div>' +
       '</div></div>' +
@@ -497,11 +506,11 @@
       '</div>' +
       '<div class="g-news">' +
         '<a href="#" onclick="return EPA.go(\'announcements\')" class="card-featured" style="display:block; background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 18px 40px rgba(120,15,25,.14); cursor:pointer; transition:transform .15s ease, box-shadow .15s ease;">' +
-          '<div style="width:100%; aspect-ratio:4/3; overflow:hidden; background:#0f0f0f;"><img src="' + esc(champsImg) + '" alt="Edgewood Marching Mustangs — 2025 ISSMA Class C State Champions" style="width:100%; height:100%; object-fit:cover; object-position:50% 38%; display:block;"></div>' +
+          '<div style="width:100%; aspect-ratio:4/3; overflow:hidden; background:#0f0f0f;"><img src="' + esc('assets/img/champs-2026.jpg') + '" alt="Edgewood Marching Mustangs — 2026 ISSMA Class C State Champions" style="width:100%; height:100%; object-fit:cover; object-position:50% 38%; display:block;"></div>' +
           '<div style="padding:26px 28px 30px;">' +
-            '<div style="display:flex; gap:10px; align-items:center; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#A31621;"><span style="background:#FBEAEA; color:#A31621; padding:4px 10px; border-radius:100px;">Championship</span><span style="color:#646B76;">November 11, 2025</span></div>' +
-            '<h3 style="font-family:\'Source Serif 4\', serif; font-size:28px; line-height:1.15; margin:14px 0 0; color:#16181D;">Back to Back to Back to BACK!</h3>' +
-            '<p style="font-size:16px; line-height:1.55; color:#565D68; margin:12px 0 0;">On November 8th, 2025 the Marching Mustangs earned their 5th Class C State Championship and their 4th straight. What an unforgettable season.</p>' +
+            '<div style="display:flex; gap:10px; align-items:center; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#A31621;"><span style="background:#FBEAEA; color:#A31621; padding:4px 10px; border-radius:100px;">Championship</span><span style="color:#646B76;">November 7, 2026</span></div>' +
+            '<h3 style="font-family:\'Source Serif 4\', serif; font-size:28px; line-height:1.15; margin:14px 0 0; color:#16181D;">Five in a row!</h3>' +
+            '<p style="font-size:16px; line-height:1.55; color:#565D68; margin:12px 0 0;">The Marching Mustangs are the 2026 ISSMA Class C State Champions! The Ties That Bind earned the program its fifth consecutive state title.</p>' +
           '</div>' +
         '</a>' +
         '<div style="display:flex; flex-direction:column; gap:16px;">' + newsHtml + '</div>' +
@@ -536,7 +545,7 @@
     '<section style="background:#15171B; color:#fff; overflow:hidden; padding:70px 0 76px;">' +
       '<div style="max-width:1200px; margin:0 auto; padding:0 28px;">' +
         '<div style="font-size:12.5px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#9AA1AC;">A legacy on the field</div>' +
-        '<h2 style="font-family:\'Anton\'; font-weight:400; font-size:clamp(34px,4.4vw,52px); text-transform:uppercase; margin:12px 0 0;">15 years of productions</h2>' +
+        '<h2 style="font-family:\'Anton\'; font-weight:400; font-size:clamp(34px,4.4vw,52px); text-transform:uppercase; margin:12px 0 0;">16 years of productions</h2>' +
       '</div>' +
       '<div style="margin-top:38px; overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);">' +
         '<div class="show-track">' + showsHtml + '</div>' +
